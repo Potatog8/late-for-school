@@ -4,6 +4,47 @@
 [ext_resource type="Texture2D" uid="uid://l2b2ainwp24u" path="res://Sprites/basic grassy landscape.png" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://njbcdvbplx8i" path="res://player.gd" id="2_fc0e3"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
+texture = ExtResource("1_feb5d")
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_fc0e3"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_feb5d")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2o6t"]
 atlas = ExtResource("1_80nbo")
 region = Rect2(16, 16, 16, 16)
@@ -107,48 +148,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
 size = Vector2(11, 15)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
-texture = ExtResource("1_feb5d")
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:1/0 = 0
-4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:1/0 = 0
-8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-8:2/0 = 0
-8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_fc0e3"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_feb5d")
-
 [node name="Game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD4/wAAAAAHAAAAAAD5/wAAAAAHAAAAAAD6/wAAAAAHAAAAAAD7/wAAAAAHAAAAAAD8/wAAAAAHAAAAAAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAHAAAAAAAFAAAAAAAHAAAAAAAGAAAAAAAHAAAAAAAHAAAAAAAHAAAAAAAIAAAAAAAHAAAAAAAJAAAAAAAHAAAAAAAKAAAAAAAHAAAAAAALAAEAAAAHAAAAAAAMAAEAAAAHAAAAAAANAAEAAAAHAAAAAAAOAAEAAAAHAAAAAAAPAAEAAAAHAAAAAAAQAAEAAAAHAAAAAAARAAEAAAAHAAAAAAASAAAAAAAHAAAAAAATAAAAAAAHAAAAAAAUAAAAAAAHAAAAAAAVAAAAAAAHAAAAAAAWAAAAAAAHAAAAAAAXAAAAAAAHAAAAAAAYAAAAAAAHAAAAAAAZAP//AAAGAAAAAAAaAP//AAAHAAAAAAAbAP//AAAHAAAAAAAcAP//AAAHAAAAAAAdAP//AAAHAAAAAAAeAP//AAAHAAAAAAAfAP//AAAHAAAAAAAgAP//AAAHAAAAAAAhAP//AAAHAAAAAAAMAP3/AAAHAAAAAAANAP3/AAAHAAAAAAAOAP3/AAAHAAAAAAAPAP3/AAAHAAAAAAAQAP3/AAAHAAAAAAAbAPz/AAAHAAAAAAAcAPz/AAAHAAAAAAAdAPz/AAAHAAAAAAAaAP3/AAAGAAEAAAAaAP7/AAAGAAEAAAAeAP3/AAAIAAEAAAAeAP7/AAAIAAEAAAAaAPz/AAAGAAAAAAAeAPz/AAAIAAAAAAAdAP3/AAADAAEAAAAcAP3/AAADAAEAAAAbAP3/AAADAAEAAAAbAP7/AAADAAEAAAAcAP7/AAADAAEAAAAdAP7/AAADAAEAAAD4////AAAIAAEAAAD4//7/AAAIAAEAAAD4//3/AAAIAAEAAAD4//z/AAAIAAEAAAD4//v/AAAIAAEAAAD4//r/AAAIAAEAAAD4//n/AAAIAAEAAAD4//j/AAAIAAEAAAD4//f/AAAIAAEAAAD4//b/AAAIAAEAAAD4//X/AAAIAAEAAAD4//T/AAAIAAEAAAD7//3/AAAGAAEAAAD7//z/AAAGAAEAAAD7//v/AAAGAAEAAAD7//r/AAAGAAEAAAD7//n/AAAGAAEAAAD7//j/AAAGAAEAAAD7//f/AAAGAAEAAAD7//b/AAAGAAEAAAD7//X/AAAGAAEAAAD7//T/AAAGAAEAAAA=")
+tile_set = SubResource("TileSet_fc0e3")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_fc0e3")
@@ -171,9 +176,19 @@ zoom = Vector2(3.07, 3.07)
 wait_time = 0.085
 one_shot = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="WalljumpTimer" type="Timer" parent="Player"]
+wait_time = 0.25
+one_shot = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-texture_filter = 1
-tile_map_data = PackedByteArray("AAD4/wAAAAAHAAAAAAD5/wAAAAAHAAAAAAD6/wAAAAAHAAAAAAD7/wAAAAAHAAAAAAD8/wAAAAAHAAAAAAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAHAAAAAAAFAAAAAAAHAAAAAAAGAAAAAAAHAAAAAAAHAAAAAAAHAAAAAAAIAAAAAAAHAAAAAAAJAAAAAAAHAAAAAAAKAAAAAAAHAAAAAAALAAEAAAAHAAAAAAAMAAEAAAAHAAAAAAANAAEAAAAHAAAAAAAOAAEAAAAHAAAAAAAPAAEAAAAHAAAAAAAQAAEAAAAHAAAAAAARAAEAAAAHAAAAAAASAAAAAAAHAAAAAAATAAAAAAAHAAAAAAAUAAAAAAAHAAAAAAAVAAAAAAAHAAAAAAAWAAAAAAAHAAAAAAAXAAAAAAAHAAAAAAAYAAAAAAAHAAAAAAAZAP//AAAGAAAAAAAaAP//AAAHAAAAAAAbAP//AAAHAAAAAAAcAP//AAAHAAAAAAAdAP//AAAHAAAAAAAeAP//AAAHAAAAAAAfAP//AAAHAAAAAAAgAP//AAAHAAAAAAAhAP//AAAHAAAAAAAMAP3/AAAHAAAAAAANAP3/AAAHAAAAAAAOAP3/AAAHAAAAAAAPAP3/AAAHAAAAAAAQAP3/AAAHAAAAAAAbAPz/AAAHAAAAAAAcAPz/AAAHAAAAAAAdAPz/AAAHAAAAAAAaAP3/AAAGAAEAAAAaAP7/AAAGAAEAAAAeAP3/AAAIAAEAAAAeAP7/AAAIAAEAAAAaAPz/AAAGAAAAAAAeAPz/AAAIAAAAAAAdAP3/AAADAAEAAAAcAP3/AAADAAEAAAAbAP3/AAADAAEAAAAbAP7/AAADAAEAAAAcAP7/AAADAAEAAAAdAP7/AAADAAEAAAA=")
-tile_set = SubResource("TileSet_fc0e3")
+[node name="JumpTimer" type="Timer" parent="Player"]
+wait_time = 2.6519999999999997
+one_shot = true
+
+[node name="RunTimer" type="Timer" parent="Player"]
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpedOffWall" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
