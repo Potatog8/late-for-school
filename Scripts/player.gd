@@ -3,12 +3,13 @@ extends CharacterBody2D #Parent Node
 @export var speed = 160 # used for speed calculations
 @export var speedMultiplier = 30 #how much the character velocity will increase / decrease by
 @export var gravity = 10 #used to pull player down
-@export var jumpspeed = 50 #used to calculate players upward momentum during jump
+@export var jumpspeed = 120 #used to calculate players upward momentum during jump
 
 var wallslide = 4 #used to calculate wallslide speed
 
 
 var last_direction = 1 #stores the direction the character most recently faced
+var last_walljump = 0
 
 func _physics_process(_delta: float) -> void:
 	
@@ -22,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		direction.x = 0
 		
-	if Input.is_action_pressed("run") and (!is_on_wall() or is_on_floor()):
+	if Input.is_action_pressed("run") and (!is_on_wall() or is_on_floor()) and $WalljumpTimer.is_stopped():
 		if direction.x > 0:
 			if $RunTimer.is_stopped():
 				if velocity.x < 1:
@@ -78,42 +79,43 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = 0
 
 
-	if Input.is_action_pressed("jump") and (is_on_floor_only() or !$CoyoteTimer.is_stopped()):
-		velocity.y -= jumpspeed
-		if velocity.y < -250:
-			velocity.y = -250
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
+		velocity.y = -270
 
 		
 	if !is_on_floor():
 		velocity.y += gravity
 		
-	if is_on_wall() and direction.x > 0 and Input.is_action_pressed("right") and !is_on_floor():
-		if !Input.is_action_pressed("jump"):
+	if is_on_wall() and !is_on_floor() and $WalljumpTimer.is_stopped():
+		var wall_normal = get_wall_normal()
+
+		if !Input.is_action_just_pressed("jump") and velocity.y > 0:
 			velocity.y = gravity * wallslide
-			velocity.x = direction.x * speed * 0.5
+			if Input.is_action_pressed("left"):
+				velocity.x = -speed
+			elif Input.is_action_pressed("right"):
+				velocity.x = speed
+			else:
+				velocity.x = 0
+
 		if Input.is_action_just_pressed("jump"):
 			$WalljumpTimer.start()
-			velocity.x = -direction.x * speed * 2
+			velocity.x = wall_normal.x * 320
 			velocity.y = -200
+			
+			last_walljump = wall_normal.x
 
-
-	if is_on_wall() and direction.x < 0 and Input.is_action_pressed("left") and !is_on_floor():
-		if !Input.is_action_pressed("jump"):
-			velocity.y = gravity * wallslide
-			velocity.x = direction.x * speed * 0.5
-		if Input.is_action_just_pressed("jump"):
-			$WalljumpTimer.start()
-			velocity.x = -direction.x * speed * 2
-			velocity.y = -200
 	
 	was_on_floor = is_on_floor()
 
 	
 	move_and_slide()
 	
-	if was_on_floor and !is_on_floor():
+	if was_on_floor and !is_on_floor() and !is_on_wall():
 		$CoyoteTimer.start()
-	elif Input.is_action_pressed("jump") or velocity.y > 0:
+	elif is_on_wall() and !is_on_floor() and velocity.y >= 0:
+		wallslide_anim(direction.x)
+	elif Input.is_action_just_pressed("jump") or !is_on_floor():
 		jump_anim(direction.x)
 	elif Input.is_action_pressed("run") and direction.length() > 0:
 		last_direction = direction.x
@@ -124,6 +126,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		idle_anim(last_direction)
 
+func wallslide_anim(direction):
+	if direction < 0:
+		$PlayerAnimation.flip_h = true
+		$PlayerAnimation.play("wallslide")
+	if direction > 0:
+		$PlayerAnimation.flip_h = false
+		$PlayerAnimation.play("wallslide")
 
 func walljump_anim(direction):
 	if direction > 0:
@@ -134,12 +143,19 @@ func walljump_anim(direction):
 		$PlayerAnimation.play("jump")
 
 func jump_anim(direction):
-	if direction < 0:
-		$PlayerAnimation.flip_h = true
+	var anim_direction = direction
+
+	if last_walljump != 0:
+		anim_direction = last_walljump
+		$PlayerAnimation.flip_h = anim_direction < 0
 		$PlayerAnimation.play("jump")
-	if direction > 0:
-		$PlayerAnimation.flip_h = false
-		$PlayerAnimation.play("jump") 
+		last_walljump = 0 
+
+	if anim_direction == 0:
+		anim_direction = last_direction
+	$PlayerAnimation.flip_h = anim_direction < 0
+	$PlayerAnimation.play("jump")
+		
 		
 func run_anim(direction):
 	if direction < 0:
