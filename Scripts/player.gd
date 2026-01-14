@@ -1,15 +1,24 @@
 extends CharacterBody2D #Parent Node
 
-@export var speed = 160 # used for speed calculations
+@export var speed = 200 # used for speed calculations
 @export var speedMultiplier = 30 #how much the character velocity will increase / decrease by
 @export var gravity = 10 #used to pull player down
 @export var jumpspeed = 120 #used to calculate players upward momentum during jump
 
+var coin_count = 0
+
+@onready var coin_label: Label = get_node("/root/Game/UI/CoinLabel")
+
 var wallslide = 4 #used to calculate wallslide speed
 
+var spawn_position: Vector2
 
 var last_direction = 1 #stores the direction the character most recently faced
 var last_walljump = 0
+
+
+func _ready():
+	spawn_position = global_position
 
 func _physics_process(_delta: float) -> void:
 	
@@ -125,6 +134,14 @@ func _physics_process(_delta: float) -> void:
 		walk_anim(direction.x)
 	else:
 		idle_anim(last_direction)
+		
+func add_coin():
+	coin_count += 1
+	coin_label.text = "Coins: " + str(coin_count)
+
+func respawn():
+	global_position = spawn_position
+	velocity = Vector2.ZERO
 
 func wallslide_anim(direction):
 	if direction < 0:

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv7lvhs0yrb3d"]
+
+[ext_resource type="Script" uid="uid://c16tqkiulqsfu" path="res://Scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://bpgmfkghsbwbf" path="res://Sprites/Enemy-Sheet.png" id="2_qi2p4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_215e1"]
+atlas = ExtResource("2_qi2p4")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sc4i"]
+atlas = ExtResource("2_qi2p4")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80cx4"]
+atlas = ExtResource("2_qi2p4")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8heu"]
+atlas = ExtResource("2_qi2p4")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvswv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_215e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sc4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80cx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8heu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boyg6"]
+size = Vector2(8, 8)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e36ub"]
+radius = 7.0
+height = 20.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(0, 15)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4gyqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_rvswv")
+animation = &"walk"
+frame_progress = 0.9689527
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_boyg6")
+
+[node name="KillArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_e36ub")
+debug_color = Color(0.86812305, 0.3315123, 0.33081844, 0.41960785)
