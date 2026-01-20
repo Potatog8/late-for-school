@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfj4dqo36vwt3"]
+
+[ext_resource type="Script" uid="uid://dtkv80kb7gn4a" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Yourpal.ttf" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="2_jix8l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
+texture = ExtResource("2_jix8l")
+modulate_color = Color(0.26028818, 0.26028818, 0.26028818, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.10132538, 0.07022378, 0.05905911, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 15
+shadow_offset = Vector2(0, 9.785)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.67, 0.58290005, 0.14740002, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.53, 0.33566666, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.49400002
+anchor_right = 0.499
+anchor_bottom = 0.49400002
+offset_left = -574.848
+offset_top = -320.112
+offset_right = 579.152
+offset_bottom = 328.888
+theme_override_styles/panel = SubResource("StyleBoxTexture_jix8l")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = 26.0
+offset_right = 232.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
+text = "Play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -481.0
+offset_top = 133.0
+offset_right = 481.0
+offset_bottom = 279.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 106
+text = "LATE FOR SCHOOL"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

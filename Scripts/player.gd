@@ -40,6 +40,8 @@ func _physics_process(_delta: float) -> void:
 				if velocity.x > 0:
 					velocity.x += speedMultiplier
 				$RunTimer.start()
+				if is_on_floor():
+					$Run.play()
 				if velocity.x > 210:
 					velocity.x = 210
 
@@ -50,8 +52,11 @@ func _physics_process(_delta: float) -> void:
 				if velocity.x < 0:
 					velocity.x -= speedMultiplier
 				$RunTimer.start()
+				if is_on_floor():
+					$Run.play()
 				if velocity.x < -210:
 					velocity.x = -210
+					
 		
 		if direction.x == 0:
 			if last_direction > 0:
@@ -62,6 +67,7 @@ func _physics_process(_delta: float) -> void:
 				velocity.x += speed * 0.1
 				if velocity.x > 0:
 					velocity.x = 0
+			$Run.stop()
 
 	if !Input.is_action_pressed("run") and (!is_on_wall() or is_on_floor()) and $WalljumpTimer.is_stopped():
 		if direction.x > 0:
@@ -71,6 +77,8 @@ func _physics_process(_delta: float) -> void:
 				if velocity.x > 0:
 					velocity.x += speedMultiplier
 				$RunTimer.start()
+				if is_on_floor():
+					$Run.play()
 				if velocity.x > 85:
 					velocity.x = 85
 					
@@ -81,14 +89,18 @@ func _physics_process(_delta: float) -> void:
 				if velocity.x < 0:
 					velocity.x -= speedMultiplier
 				$RunTimer.start()
+				if is_on_floor():
+					$Run.play()
 				if velocity.x < -85:
 					velocity.x = -85
 					
 		if direction.x == 0:
 			velocity.x = 0
+			$Run.stop()
 
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !$CoyoteTimer.is_stopped()):
+		$Jump.play()
 		velocity.y = -270
 
 		
@@ -137,9 +149,11 @@ func _physics_process(_delta: float) -> void:
 		
 func add_coin():
 	coin_count += 1
+	$CollectCoin.play()
 	coin_label.text = "Coins: " + str(coin_count)
 
 func respawn():
+	$Death.play()
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 
