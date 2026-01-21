@@ -15,6 +15,10 @@ run/main_scene="uid://cfj4dqo36vwt3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
+[autoload]
+
+Nodesender="*res://Scripts/nodesender.gd"
+
 [input]
 
 left={

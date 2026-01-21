@@ -40,10 +40,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boyg6"]
-size = Vector2(8, 8)
+size = Vector2(6, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e36ub"]
-radius = 5.0
+radius = 6.0
 height = 14.0
 
 [node name="Enemy" type="CharacterBody2D"]

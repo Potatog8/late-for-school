@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cfj4dqo36vwt3"]
 
-[ext_resource type="Script" uid="uid://dtkv80kb7gn4a" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://dtkv80kb7gn4a" path="res://Scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Yourpal.ttf" id="2_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="2_jix8l"]
 
@@ -43,16 +43,19 @@ grow_vertical = 2
 script = ExtResource("1_fu7sn")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.499
-anchor_top = 0.49400002
-anchor_right = 0.499
-anchor_bottom = 0.49400002
-offset_left = -574.848
-offset_top = -320.112
-offset_right = 579.152
-offset_bottom = 328.888
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jix8l")
 
 [node name="Button" type="Button" parent="."]

@@ -6,8 +6,15 @@ extends CharacterBody2D #Parent Node
 @export var jumpspeed = 120 #used to calculate players upward momentum during jump
 
 var coin_count = 0
+var death_count = 0
+
+var can_move = true
+var timer_active = true
 
 @onready var coin_label: Label = get_node("/root/Game/UI/CoinLabel")
+@onready var death_label: Label = get_node("/root/Game/UI/DeathCounter")
+@onready var time_label: Label = get_node("/root/Game/UI/Stopwatch")
+@onready var finish_area: Area2D = $Finish
 
 var wallslide = 4 #used to calculate wallslide speed
 
@@ -16,9 +23,11 @@ var spawn_position: Vector2
 var last_direction = 1 #stores the direction the character most recently faced
 var last_walljump = 0
 
+var seconds = 0
 
 func _ready():
 	spawn_position = global_position
+
 
 func _physics_process(_delta: float) -> void:
 	
@@ -147,6 +156,12 @@ func _physics_process(_delta: float) -> void:
 	else:
 		idle_anim(last_direction)
 		
+	if timer_active and $TimerDelay.is_stopped():
+		seconds += 1
+		time_label.text = str(seconds) + "s"
+		$TimerDelay.start()
+		
+	
 func add_coin():
 	coin_count += 1
 	$CollectCoin.play()
@@ -154,7 +169,9 @@ func add_coin():
 
 func respawn():
 	$Death.play()
+	death_count += 1
 	global_position = spawn_position
+	death_label.text = "Deaths: " + str(death_count)
 	velocity = Vector2.ZERO
 
 func wallslide_anim(direction):
@@ -211,3 +228,11 @@ func idle_anim(direction):
 	if direction > 0:
 		$PlayerAnimation.flip_h = false
 		$PlayerAnimation.play("idle")
+
+func _on_finish_body_entered(body: Node2D) -> void:
+	if body == self:
+		timer_active = false
+		Nodesender.final_time = time_label.text
+		Nodesender.total_coins = coin_label.text
+		Nodesender.total_deaths = death_label.text
+		get_tree().change_scene_to_file("res://end_screen.tscn")

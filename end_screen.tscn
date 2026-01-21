@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://coq78qgmx5smd"]
+
+[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="1_my301"]
+[ext_resource type="Script" uid="uid://d3mchnh2b0meq" path="res://end_screen.gd" id="1_xu7hh"]
+[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Yourpal.ttf" id="3_pmjk2"]
+[ext_resource type="FontFile" uid="uid://b10d4mbbmvoif" path="res://jJaneRock.ttf" id="4_pmjk2"]
+[ext_resource type="AudioStream" uid="uid://diwgwjmlavn5k" path="res://Audio/victoryff.swf.mp3" id="5_d75mr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abjgy"]
+texture = ExtResource("1_my301")
+modulate_color = Color(0.26028818, 0.26028818, 0.26028818, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d75mr"]
+bg_color = Color(0.10132538, 0.07022378, 0.05905911, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 15
+shadow_offset = Vector2(0, 9.785)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be1gp"]
+bg_color = Color(0.67, 0.58290005, 0.14740002, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaxt3"]
+bg_color = Color(0.53, 0.33566666, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2afhe"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xu7hh")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_abjgy")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.86600006
+anchor_right = 0.5
+anchor_bottom = 0.86600006
+offset_left = -232.0
+offset_top = -66.16803
+offset_right = 232.0
+offset_bottom = 65.83197
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_d75mr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_be1gp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kaxt3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2afhe")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -507.0
+offset_top = 117.0
+offset_right = 489.0
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_pmjk2")
+theme_override_font_sizes/font_size = 81
+text = "You made it to school!"
+
+[node name="FinalTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34300002
+anchor_right = 0.5
+anchor_bottom = 0.34300002
+offset_left = -167.0
+offset_top = 6.735977
+offset_right = 167.0
+offset_bottom = 63.902664
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_font_sizes/font_size = 56
+text = "Final Time: 0s"
+
+[node name="TotalCoins" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34300002
+anchor_right = 0.5
+anchor_bottom = 0.34300002
+offset_left = -167.0
+offset_top = 72.73598
+offset_right = 167.0
+offset_bottom = 129.90266
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_font_sizes/font_size = 56
+text = "Coins: 0"
+
+[node name="TotalDeaths" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34300002
+anchor_right = 0.5
+anchor_bottom = 0.34300002
+offset_left = -167.0
+offset_top = 141.73598
+offset_right = 167.0
+offset_bottom = 198.90266
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_font_sizes/font_size = 56
+text = "Deaths: 0"
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d75mr")
+volume_db = -10.495
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
