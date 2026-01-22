@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bktdf3c3lu53c"
-path="res://.godot/imported/jJaneRock.ttf-288fa629d090624d044c51502f03cc2c.fontdata"
+uid="uid://d4k8651ps4mj0"
+path="res://.godot/imported/Yourpal.ttf-46f1ef24c1e870a20d0cd5b86cde557b.fontdata"
 
 [deps]
 
-source_file="res://Scripts/jJaneRock.ttf"
-dest_files=["res://.godot/imported/jJaneRock.ttf-288fa629d090624d044c51502f03cc2c.fontdata"]
+source_file="res://Fonts/Yourpal.ttf"
+dest_files=["res://.godot/imported/Yourpal.ttf-46f1ef24c1e870a20d0cd5b86cde557b.fontdata"]
 
 [params]
 

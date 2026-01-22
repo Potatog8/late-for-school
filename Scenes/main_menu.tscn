@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://cfj4dqo36vwt3"]
 
-[ext_resource type="Script" uid="uid://dtkv80kb7gn4a" path="res://Scripts/main_menu.gd" id="1_fu7sn"]
-[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Yourpal.ttf" id="2_fu7sn"]
-[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="2_jix8l"]
+[ext_resource type="Script" uid="uid://cqv6dy7qtceb3" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="2_ce3w2"]
+[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Fonts/Yourpal.ttf" id="3_n45e2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
-texture = ExtResource("2_jix8l")
+texture = ExtResource("2_ce3w2")
 modulate_color = Color(0.26028818, 0.26028818, 0.26028818, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fu7sn")
+script = ExtResource("1_1ehe0")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -88,7 +88,7 @@ offset_top = 133.0
 offset_right = 481.0
 offset_bottom = 279.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_fonts/font = ExtResource("3_n45e2")
 theme_override_font_sizes/font_size = 106
 text = "LATE FOR SCHOOL"
 

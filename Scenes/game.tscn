@@ -4,17 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://l2b2ainwp24u" path="res://Sprites/basic grassy landscape.png" id="1_feb5d"]
 [ext_resource type="Texture2D" uid="uid://j2f8xawudihe" path="res://Tilesets/GrassLand tileset.png" id="2_7jktm"]
 [ext_resource type="Script" uid="uid://njbcdvbplx8i" path="res://Scripts/player.gd" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bv7lvhs0yrb3d" path="res://enemy.tscn" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://bv7lvhs0yrb3d" path="res://Scenes/enemy.tscn" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://buq2yfpvlhb3f" path="res://Sprites/School.png" id="3_vef74"]
 [ext_resource type="Texture2D" uid="uid://yes1jbkwhnaq" path="res://Sprites/Player sprite sheet.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://ctvg0pfdv5g3l" path="res://Scripts/death_zone.gd" id="7_eow3j"]
 [ext_resource type="AudioStream" uid="uid://clxv3u4hidjcb" path="res://Audio/roblox-death-sound-effect.mp3" id="7_hve3p"]
-[ext_resource type="PackedScene" uid="uid://boxlvbqsixt84" path="res://coin.tscn" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://boxlvbqsixt84" path="res://Scenes/coin.tscn" id="8_j5wjh"]
 [ext_resource type="AudioStream" uid="uid://bnfdx4leshw4m" path="res://Audio/341695__projectsu012__coins-1.mp3" id="8_mfdv2"]
 [ext_resource type="AudioStream" uid="uid://5i3cocoxld1r" path="res://Audio/maro-jump-sound-effect_1.mp3" id="9_iotsf"]
 [ext_resource type="AudioStream" uid="uid://cde784xnwq0jf" path="res://Audio/footsteps-dirt-gravel-6823.mp3" id="10_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://vyye3kxmn51h" path="res://Tilesets/Background.png" id="11_215e1"]
-[ext_resource type="FontFile" uid="uid://b10d4mbbmvoif" path="res://jJaneRock.ttf" id="13_7sc4i"]
+[ext_resource type="FontFile" uid="uid://b10d4mbbmvoif" path="res://Fonts/jJaneRock.ttf" id="13_7sc4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_215e1"]
 texture = ExtResource("11_215e1")
@@ -561,6 +561,7 @@ script = ExtResource("7_eow3j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(2418, 767)
 shape = SubResource("RectangleShape2D_j5wjh")
+debug_color = Color(0.94552547, 0.20901027, 0.2831156, 0.41960785)
 script = SubResource("GDScript_j5wjh")
 
 [node name="UI" type="CanvasLayer" parent="."]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://coq78qgmx5smd"]
+[gd_scene load_steps=15 format=3 uid="uid://coq78qgmx5smd"]
 
-[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="1_my301"]
-[ext_resource type="Script" uid="uid://d3mchnh2b0meq" path="res://end_screen.gd" id="1_xu7hh"]
-[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Yourpal.ttf" id="3_pmjk2"]
-[ext_resource type="FontFile" uid="uid://b10d4mbbmvoif" path="res://jJaneRock.ttf" id="4_pmjk2"]
-[ext_resource type="AudioStream" uid="uid://diwgwjmlavn5k" path="res://Audio/victoryff.swf.mp3" id="5_d75mr"]
+[ext_resource type="Script" uid="uid://d3mchnh2b0meq" path="res://Scripts/end_screen.gd" id="1_8yanq"]
+[ext_resource type="Texture2D" uid="uid://78t00a2tuo3q" path="res://Sprites/Screenshot 2026-01-19 215529.png" id="2_fi2y0"]
+[ext_resource type="FontFile" uid="uid://d4k8651ps4mj0" path="res://Fonts/Yourpal.ttf" id="3_em7vc"]
+[ext_resource type="FontFile" uid="uid://b10d4mbbmvoif" path="res://Fonts/jJaneRock.ttf" id="4_4suit"]
+[ext_resource type="AudioStream" uid="uid://diwgwjmlavn5k" path="res://Audio/victoryff.swf.mp3" id="5_wqrt5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abjgy"]
-texture = ExtResource("1_my301")
+texture = ExtResource("2_fi2y0")
 modulate_color = Color(0.26028818, 0.26028818, 0.26028818, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d75mr"]
@@ -35,6 +35,31 @@ corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2afhe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2afhe"]
+bg_color = Color(0.10132538, 0.07022378, 0.05905911, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_size = 15
+shadow_offset = Vector2(0, 9.785)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbj2a"]
+bg_color = Color(0.67, 0.58290005, 0.14740002, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f33ud"]
+bg_color = Color(0.53, 0.33566666, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpe70"]
+
 [node name="EndScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -42,7 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xu7hh")
+script = ExtResource("1_8yanq")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -63,13 +88,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_abjgy")
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.72300005
 anchor_top = 0.86600006
-anchor_right = 0.5
+anchor_right = 0.72300005
 anchor_bottom = 0.86600006
-offset_left = -232.0
+offset_left = -231.89606
 offset_top = -66.16803
-offset_right = 232.0
+offset_right = 232.10394
 offset_bottom = 65.83197
 grow_horizontal = 2
 grow_vertical = 2
@@ -79,6 +104,26 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_be1gp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kaxt3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2afhe")
 text = "Quit"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28300002
+anchor_top = 0.86300004
+anchor_right = 0.28300002
+anchor_bottom = 0.86300004
+offset_left = -232.01602
+offset_top = -66.224
+offset_right = 231.98398
+offset_bottom = 65.776
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_2afhe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nbj2a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f33ud")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jpe70")
+text = "Play Again"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -90,7 +135,7 @@ offset_top = 117.0
 offset_right = 489.0
 offset_bottom = 223.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_pmjk2")
+theme_override_fonts/font = ExtResource("3_em7vc")
 theme_override_font_sizes/font_size = 81
 text = "You made it to school!"
 
@@ -107,7 +152,7 @@ offset_right = 167.0
 offset_bottom = 63.902664
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_fonts/font = ExtResource("4_4suit")
 theme_override_font_sizes/font_size = 56
 text = "Final Time: 0s"
 
@@ -124,7 +169,7 @@ offset_right = 167.0
 offset_bottom = 129.90266
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_fonts/font = ExtResource("4_4suit")
 theme_override_font_sizes/font_size = 56
 text = "Coins: 0"
 
@@ -141,12 +186,13 @@ offset_right = 167.0
 offset_bottom = 198.90266
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_pmjk2")
+theme_override_fonts/font = ExtResource("4_4suit")
 theme_override_font_sizes/font_size = 56
 text = "Deaths: 0"
 
 [node name="Victory" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_d75mr")
+stream = ExtResource("5_wqrt5")
 volume_db = -10.495
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
